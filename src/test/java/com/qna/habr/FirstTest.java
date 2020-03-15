@@ -34,11 +34,40 @@ public class FirstTest {
         searchBox.sendKeys(Keys.ENTER);
 
         //олучаем едеьенты
-        List<WebElement> posts= driver.findElementsByClassName("content-list__item");
+        List<WebElement> posts = driver.findElementsByClassName("content-list__item");
 
         System.out.println("posts");
-           posts.get(2).click();
+        posts.get(2).click();
 
+        //chech selenium tag exist
+        //tags-list
+        /*
+        WebElement tagsList=  driver.findElementByXPath("//a[contains(text(),'Selenium')");
+        if(tagsList==null){
+            System.out.println("no found");
+        }else {
+            System.out.println("found");
+        }
+        */
+
+        //open naw bar
+
+        WebElement nawBar = driver.findElementByClassName("btn_navbar_toggle");
+        if (nawBar == null) {
+            System.out.println("nawBar no found");
+            System.exit(1);
+        } else {
+            nawBar.click();
+        }
+
+        WebElement   sharing = driver.findElementByClassName("btn btn_share");
+
+        if (sharing == null) {
+            System.out.println("sharing no found");
+            System.exit(1);
+        } else {
+            sharing.click();
+        }
     }
 
 
