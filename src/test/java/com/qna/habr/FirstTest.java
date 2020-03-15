@@ -9,6 +9,7 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
 import javax.lang.model.element.Element;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -29,6 +30,20 @@ public class FirstTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        /*
+        * check plaseholder
+        * */
+        String s=driver.findElement(By.xpath("//input[@placeholder='Найти вопрос, ответ, тег или пользователя']")).getAttribute("placeholder");
+        System.out.println("Plaseholder ");
+        System.out.println(s);
+        if(s.equals("Найти вопрос, ответ, тег или пользователя")){
+            System.out.println("Plaseholder found");
+        }else {
+            System.out.println("Plaseholder not found");
+        }
+
+
         WebElement searchBox = driver.findElement(By.name("q"));
         searchBox.sendKeys("Selenium");
         searchBox.sendKeys(Keys.UP);
@@ -83,6 +98,17 @@ public class FirstTest {
             System.out.println("share not null");
         } else {
 
+        }
+
+        // check Tritter Page on new window
+        ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+        System.out.println(driver.getCurrentUrl().toString());
+        String new_url=driver.getCurrentUrl().toString();
+        if(new_url.contains("/twitter.com/intent/tweet?text=")){
+            System.out.println("pass");
+        }else {
+            System.out.println("fail");
         }
 
     }
