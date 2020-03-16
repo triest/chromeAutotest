@@ -36,10 +36,7 @@ public class FirstTest {
         * check plaseholder
         * */
         String s=driver.findElement(By.xpath("//input[@placeholder='Найти вопрос, ответ, тег или пользователя']")).getAttribute("placeholder");
-        System.out.println("Plaseholder ");
-        System.out.println(s);
         if(s.equals("Найти вопрос, ответ, тег или пользователя")){
-            System.out.println("Plaseholder found");
         }else {
             Assert.fail("placeholder not found");
         }
