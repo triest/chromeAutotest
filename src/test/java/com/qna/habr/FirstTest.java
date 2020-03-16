@@ -1,5 +1,6 @@
 package com.qna.habr;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -40,7 +41,7 @@ public class FirstTest {
         if(s.equals("Найти вопрос, ответ, тег или пользователя")){
             System.out.println("Plaseholder found");
         }else {
-            System.out.println("Plaseholder not found");
+            Assert.fail("placeholder not found");
         }
 
 
@@ -53,53 +54,45 @@ public class FirstTest {
         //олучаем едеьенты
         List<WebElement> posts = driver.findElementsByClassName("content-list__item");
         TimeUnit.SECONDS.sleep(2);
-        System.out.println("posts");
         posts.get(2).click();
 
-        //chech selenium tag exist
-        //tags-list
+        WebElement tagsList = driver.findElementByXPath("//a[contains(text(),'Selenium')]");
 
-        WebElement tagsList = driver.findElementByCssSelector(".question__tags:nth-child(2) > .tags-list a");
         if (tagsList == null) {
-            System.out.println("no found");
-        } else {
-            System.out.println("found");
+            Assert.fail("tags not found");
         }
 
 
         //open naw bar
+        TimeUnit.SECONDS.sleep(2);
 
-/*
         WebElement nawBar = driver.findElementByClassName("btn_navbar_toggle");
         if (nawBar == null) {
-            System.out.println("nawBar no found");
+            Assert.fail("nawbar not found");
             System.exit(1);
         } else {
             nawBar.click();
             TimeUnit.SECONDS.sleep(2);
             nawBar.click();
         }
-*/
+        TimeUnit.SECONDS.sleep(2);
         driver.executeScript("window.scrollTo(0, document.body.scrollHeight*0.37);");
 
         WebElement share = driver.findElementByCssSelector(".dropdown:nth-child(4) > .btn");
         if (share != null) {
-
          share.click();
-            System.out.println("share not null");
         } else {
-            System.out.println("share null");
+            Assert.fail("share not found");
         }
-
+        TimeUnit.SECONDS.sleep(2);
 
         share = driver.findElementByCssSelector(".dropdown_active .link_tw");
         if (share != null) {
             share.click();
-            System.out.println("share not null");
         } else {
-
+            Assert.fail("Twittrer not found");
         }
-
+        TimeUnit.SECONDS.sleep(2);
         // check Tritter Page on new window
         ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
@@ -108,9 +101,9 @@ public class FirstTest {
         if(new_url.contains("/twitter.com/intent/tweet?text=")){
             System.out.println("pass");
         }else {
-            System.out.println("fail");
+            Assert.fail("Twittrer page not open");
         }
-
+        driver.quit();
     }
 
 
