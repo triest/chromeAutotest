@@ -90,7 +90,20 @@ public class Computer {
         WebElement SubmitButton = driver.findElement(By.id("searchsubmit"));
         SubmitButton.click();
 
+        /*Check computer on page*/
+        WebElement link = driver.findElementByXPath("//a[contains(text(),'" + name + "')]");
 
+        if (link == null) {
+            Assert.fail("tags not found");
+        }
+
+        //open naw bar
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        link.click();
 
     }
 
