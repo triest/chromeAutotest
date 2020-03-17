@@ -104,7 +104,13 @@ public class Computer {
             e.printStackTrace();
         }
         link.click();
-
+        /*Now Search name on page*/
+        String s = driver.findElement(By.xpath("//input[@value='"+name+"']")).getAttribute("value");
+        if (s.equals(name)) {
+            Assert.assertTrue(true);
+        } else {
+            Assert.fail("placeholder not found");
+        }
     }
 
 
