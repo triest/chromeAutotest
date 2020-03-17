@@ -13,39 +13,33 @@ import java.net.*;
 import java.util.*;
 
 import static org.apache.commons.lang3.ArrayUtils.add;
+import static org.junit.Assert.assertTrue;
 
 public class StarWarsTest {
 
     @Test
     public void FirstTest() throws InterruptedException, ProtocolException {
-        System.out.println(FindHeroUrl());
         String heroUrl = FindHeroUrl();
         if (heroUrl == null) {
             Assert.fail("Hero url Not Found");
         }
         ArrayList<String> ShiprsUrlList = shackSteamshipArray(heroUrl); //links to ships
 
-        if(SheckShipHasLink(ShiprsUrlList.get(0), heroUrl)){
-            System.out.println("has link");
-        }else{
-            System.out.println("not link");
-        }
-        /*
-        * foreach list of ShiprsUrlList
-        * */
         boolean allHas=true;
-        for (String item:ShiprsUrlList){
-            if(!SheckShipHasLink(item,heroUrl)){
-                allHas=false;
+        if(!ShiprsUrlList.isEmpty()) {
+            for (String item : ShiprsUrlList) {
+                if (!CheckShipHasLink(item, heroUrl)) {
+                    allHas = false;
+                }
             }
+            assertTrue(allHas);
+        }else {
+            assertTrue(false);
         }
-
-        System.out.println("allHasa"+allHas);
-
     }
 
     //return true if ships has link to
-    public boolean SheckShipHasLink(String shipLink, String Url) {
+    public boolean CheckShipHasLink(String shipLink, String Url) {
         // we need get pilots link
         URL url = null;
 
@@ -54,8 +48,6 @@ public class StarWarsTest {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        System.out.println("url1");
-        System.out.println(shipLink);
         HttpURLConnection con = null;
 
         try {
@@ -102,18 +94,9 @@ public class StarWarsTest {
 
         String responseString = content.toString();
         JSONObject jsonObject = new JSONObject(responseString);
-        System.out.println("jsonObject.toString()");
-        System.out.println(jsonObject.toString());
-
         JSONArray arr = jsonObject.getJSONArray("pilots");
-        System.out.println(arr);
-
-        ArrayList<String> list = new ArrayList<String>();
         boolean HasLink=false;
         for (Object o : arr) {
-
-            System.out.println(o.toString());
-          //  list.add(o.toString());
             if(Url.equals(o.toString())){
                 HasLink=true;
             }
@@ -178,12 +161,8 @@ public class StarWarsTest {
         String responseString = content.toString();
         JSONObject jsonObject = new JSONObject(responseString);
         JSONArray arr = jsonObject.getJSONArray("starships");
-        // System.out.println("json array");
-        System.out.println(arr);
-        // String[] name = new String[]{};
         ArrayList<String> list = new ArrayList<String>();
         for (Object o : arr) {
-            //    System.out.println(o.toString());
             list.add(o.toString());
         }
 

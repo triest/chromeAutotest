@@ -2,19 +2,16 @@ package com.qna.habr;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
-
-import javax.lang.model.element.Element;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
-import static java.lang.Thread.*;
 
 public class FirstTest {
 
