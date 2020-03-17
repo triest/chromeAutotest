@@ -23,10 +23,105 @@ public class StarWarsTest {
         if (heroUrl == null) {
             Assert.fail("Hero url Not Found");
         }
+        ArrayList<String> ShiprsUrlList = shackSteamshipArray(heroUrl); //links to ships
 
-        ArrayList<String>  url= shackSteamshipArray(heroUrl);
+        if(SheckShipHasLink(ShiprsUrlList.get(0), heroUrl)){
+            System.out.println("has link");
+        }else{
+            System.out.println("not link");
+        }
+        /*
+        * foreach list of ShiprsUrlList
+        * */
+        boolean allHas=true;
+        for (String item:ShiprsUrlList){
+            if(!SheckShipHasLink(item,heroUrl)){
+                allHas=false;
+            }
+        }
+
+        System.out.println("allHasa"+allHas);
 
     }
+
+    //return true if ships has link to
+    public boolean SheckShipHasLink(String shipLink, String Url) {
+        // we need get pilots link
+        URL url = null;
+
+        try {
+            url = new URL(shipLink);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("url1");
+        System.out.println(shipLink);
+        HttpURLConnection con = null;
+
+        try {
+            con = (HttpURLConnection) url.openConnection();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            con.setRequestMethod("GET");
+        } catch (ProtocolException e) {
+            e.printStackTrace();
+        }
+        con.setRequestProperty("Accept", "application/json");
+        int status = 0;
+        try {
+            status = con.getResponseCode();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        BufferedReader in = null;
+        try {
+            in = new BufferedReader(
+                    new InputStreamReader(con.getInputStream()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String inputLine = null;
+        StringBuffer content = new StringBuffer();
+        while (true) {
+            try {
+                if (!((inputLine = in.readLine()) != null)) break;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            content.append(inputLine);
+        }
+        try {
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String responseString = content.toString();
+        JSONObject jsonObject = new JSONObject(responseString);
+        System.out.println("jsonObject.toString()");
+        System.out.println(jsonObject.toString());
+
+        JSONArray arr = jsonObject.getJSONArray("pilots");
+        System.out.println(arr);
+
+        ArrayList<String> list = new ArrayList<String>();
+        boolean HasLink=false;
+        for (Object o : arr) {
+
+            System.out.println(o.toString());
+          //  list.add(o.toString());
+            if(Url.equals(o.toString())){
+                HasLink=true;
+            }
+        }
+
+        return HasLink;
+    }
+
 
     public ArrayList<String> shackSteamshipArray(String Url) {
 
@@ -83,13 +178,13 @@ public class StarWarsTest {
         String responseString = content.toString();
         JSONObject jsonObject = new JSONObject(responseString);
         JSONArray arr = jsonObject.getJSONArray("starships");
+        // System.out.println("json array");
         System.out.println(arr);
-        String[] name = new String[]{};
-             ArrayList<String> list = new ArrayList<String>();
-        for (int i = 0; i < arr.length(); i++) {
-            //list.add(arr2.getJSONObject(i).getString("name"));
-            System.out.println(arr.getJSONObject(i).getString("name"));
-            list.add(arr.getJSONObject(i).getString("name"));
+        // String[] name = new String[]{};
+        ArrayList<String> list = new ArrayList<String>();
+        for (Object o : arr) {
+            //    System.out.println(o.toString());
+            list.add(o.toString());
         }
 
         return list;
@@ -104,8 +199,8 @@ public class StarWarsTest {
         Boolean findPadmé = false;
 
         String Address = "https://swapi.co/api/people/";
-        int count=0;
-        while (findPadmé == false || count<20) {
+        int count = 0;
+        while (findPadmé == false || count < 20) {
             count++;
             URL url = null;
             try {
