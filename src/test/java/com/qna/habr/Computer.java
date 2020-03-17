@@ -56,21 +56,51 @@ public class Computer {
         }
 
         /*By API request create new PC*/
+
+        String Name = getAlphaNumericString(10);
+        System.out.println("PC name " + Name);
         try {
-            CreatePCByRequwest();
+            CreatePCByRequwest(Name);
         } catch (IOException e) {
             e.printStackTrace();
         }
+        SearchName(Name);
+        /*
+         * now try found PC
+         * */
+    }
+
+
+    public void SearchName(String name) {
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe");
+        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver_win32\\chromedriver.exe");
+        ChromeDriver driver = new ChromeDriver(chromeOptions);
+        driver.manage().window().setSize(new Dimension(1080, 960));
+        driver.get("http://computer-database.gatling.io/computers");
+        try {
+            Thread.sleep(1000);  // Let the user actually see something!
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        WebElement searchBox = driver.findElement(By.id("searchbox"));
+        searchBox.sendKeys(name);
+
+        WebElement SubmitButton = driver.findElement(By.id("searchsubmit"));
+        SubmitButton.click();
+
+
 
     }
 
-    @Test
-    public void CreatePCByRequwest() throws IOException {
+
+    public void CreatePCByRequwest(String string) throws IOException {
         String url = "http://computer-database.gatling.io/computers";
 
         HttpPost post = new HttpPost(url);
         List<NameValuePair> urlParameters = new ArrayList<>();
-        urlParameters.add(new BasicNameValuePair("name", "name212dsds21"));
+        urlParameters.add(new BasicNameValuePair("name", string));
         urlParameters.add(new BasicNameValuePair("introduced", "2020-03-17"));
         urlParameters.add(new BasicNameValuePair("discontinued", "2020-03-17"));
         urlParameters.add(new BasicNameValuePair("company", "7"));
@@ -82,14 +112,37 @@ public class Computer {
 
         try (CloseableHttpClient httpClient = HttpClients.createDefault();
              CloseableHttpResponse response = httpClient.execute(post)) {
-
-            System.out.println(EntityUtils.toString(response.getEntity()));
         } catch (ClientProtocolException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
+
+    static String getAlphaNumericString(int n) {
+
+        // chose a Character random from this String
+        String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                + "0123456789"
+                + "abcdefghijklmnopqrstuvxyz";
+
+        // create StringBuffer size of AlphaNumericString
+        StringBuilder sb = new StringBuilder(n);
+
+        for (int i = 0; i < n; i++) {
+
+            // generate a random number between
+            // 0 to AlphaNumericString variable length
+            int index
+                    = (int) (AlphaNumericString.length()
+                    * Math.random());
+
+            // add Character one by one in end of sb
+            sb.append(AlphaNumericString
+                    .charAt(index));
+        }
+
+        return sb.toString();
+    }
+
 }
