@@ -523,9 +523,12 @@ public class Computer {
 
         /*Check computer on page*/
         WebElement link;
-        link = driver.findElementByXPath("//a[contains(text(),'" + name + "')]");
-
-
+        try {
+            link = driver.findElementByXPath("//a[contains(text(),'" + name + "')]");
+        } catch (org.openqa.selenium.NoSuchElementException e)  {
+            System.out.println("NoSuchElementException!!");
+            return false;
+        }
         if (link == null) {
             return false;
         }
