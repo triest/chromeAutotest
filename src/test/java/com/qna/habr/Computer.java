@@ -386,8 +386,8 @@ public class Computer {
         driver.manage().window().setSize(new Dimension(1080, 960));
         driver.get("http://computer-database.gatling.io/computers");
 
-          //String name=addPCFunction();
-        String     name="1sa4FfYyQu";
+         String name=addPCFunction();
+
         WebElement    searchBox = driver.findElement(By.id("searchbox"));
         searchBox.sendKeys(name);
 
@@ -414,6 +414,18 @@ public class Computer {
          name=getAlphaNumericString(10);
         //add name
          searchBox = driver.findElement(By.id("name"));
+         searchBox.sendKeys(Keys.BACK_SPACE);
+         searchBox.sendKeys(Keys.BACK_SPACE);
+         searchBox.sendKeys(Keys.BACK_SPACE);
+         searchBox.sendKeys(Keys.BACK_SPACE);
+         searchBox.sendKeys(Keys.BACK_SPACE);
+         searchBox.sendKeys(Keys.BACK_SPACE);
+         searchBox.sendKeys(Keys.BACK_SPACE);
+         searchBox.sendKeys(Keys.BACK_SPACE);
+         searchBox.sendKeys(Keys.BACK_SPACE);
+         searchBox.sendKeys(Keys.BACK_SPACE);
+         searchBox.sendKeys(Keys.BACK_SPACE);
+         searchBox.sendKeys(Keys.BACK_SPACE);
         searchBox.sendKeys(name);
 
         //add introduced
@@ -484,11 +496,12 @@ public class Computer {
         String new_name=searchBox.getAttribute("value");
         System.out.println("new_name");
         System.out.println(new_name);
-
+        System.out.println("name");
+        System.out.println(name);
         if(new_name.equals(name)){
-            System.out.println("true");
+
         }else {
-            Assert.fail("name not found");
+           return  false;
         }
 
         searchBox = driver.findElement(By.id("introduced"));
