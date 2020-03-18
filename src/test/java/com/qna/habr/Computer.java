@@ -751,5 +751,32 @@ public class Computer {
 
     }
 
+    @Test
+    public void TestBackButton(){
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe");
+        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver_win32\\chromedriver.exe");
+        ChromeDriver driver = new ChromeDriver(chromeOptions);
+        driver.manage().window().setSize(new Dimension(1080, 960));
+        driver.get("http://computer-database.gatling.io/computers");
+        WebElement Buttom = driver.findElement(By.xpath("//a[contains(text(),'Next →')]"));
+        Buttom.click();
+
+        List<WebElement> link=driver.findElements(By.xpath("//a[contains(@href, '/computers/')]"));
+        link.get(10).click();
+       ////a[contains(text(),'Cancel')]
+        Buttom=driver.findElementByXPath("//a[contains(text(),'Cancel')]");
+        Buttom.click();
+
+        String new_url=driver.getCurrentUrl().toString();
+        if(new_url.equals("http://computer-database.gatling.io/computers")){
+            Assert.assertTrue(true);
+        }else {
+            Assert.assertTrue(false);
+        }
+
+        driver.close();
+    }
+
 
 }
