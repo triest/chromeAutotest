@@ -20,6 +20,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.security.Key;
 import java.util.ArrayList;
 import java.util.List;
@@ -652,7 +656,7 @@ public class Computer {
         discontinuedBox = driver.findElement(By.id("discontinued"));
         discontinuedBox.click();
 
-        for (int i=0;i<10;i++){
+        for (int i = 0; i < 10; i++) {
             discontinuedBox.sendKeys(Keys.BACK_SPACE);
         }
 
@@ -681,7 +685,7 @@ public class Computer {
 
         discontinuedBox = driver.findElement(By.id("discontinued"));
         discontinuedBox.click();
-        for (int i=0;i<10;i++){
+        for (int i = 0; i < 10; i++) {
             discontinuedBox.sendKeys(Keys.BACK_SPACE);
         }
 
@@ -701,42 +705,49 @@ public class Computer {
         submit = driver.findElementByCssSelector(".primary");
         submit.click();
 
-        /*
-        try {
-            TimeUnit.SECONDS.sleep(2);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
-        discontinuedBox.click();
-
-        for (int i = 0; i < 30; i++) {
-            discontinuedBox.sendKeys(Keys.BACK_SPACE);
-        }
-
-        /*
-        try {
-            TimeUnit.SECONDS.sleep(2);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        discontinuedBox.sendKeys("2020-03-15");
-*/
-/*
-        try {
-            TimeUnit.SECONDS.sleep(2);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        submit.click();
-        */
         Assert.assertTrue(true);
     }
 
     /**/
     @Test
     public void check404() {
+
+        String Address = "http://computer-database.gatling.io/comput";
+
+        URL url = null;
+        try {
+            url = new URL(Address);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        HttpURLConnection con = null;
+
+        try {
+            con = (HttpURLConnection) url.openConnection();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            con.setRequestMethod("GET");
+        } catch (ProtocolException e) {
+            e.printStackTrace();
+        }
+        con.setRequestProperty("Accept", "application/json");
+        int status = 0;
+        try {
+            status = con.getResponseCode();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(status);
+        if(status==404){
+            Assert.assertTrue(true);
+        }else {
+            Assert.assertTrue(false);
+        }
+        
 
     }
 
