@@ -592,22 +592,22 @@ public class Computer {
 
         WebElement span = driver.findElement(By.cssSelector(".error .help-inline"));
         System.out.println(span.getText());
-        if(span.getText().equals("Required")==false){
+        if (span.getText().equals("Required") == false) {
             Assert.fail("Name require not valid");
         }
 
-        String name=getAlphaNumericString(10);
+        String name = getAlphaNumericString(10);
         WebElement searchBox = driver.findElement(By.id("name"));
         searchBox.sendKeys(name);
 
         WebElement introducedBox = driver.findElement(By.id("introduced"));
         introducedBox.sendKeys(name);
 
-            //xpath=//section[@id='main']/form/fieldset/div[2]/div
-         span = driver.findElement(By.xpath("//section[@id='main']/form/fieldset/div[2]/div"));
+        //xpath=//section[@id='main']/form/fieldset/div[2]/div
+        span = driver.findElement(By.xpath("//section[@id='main']/form/fieldset/div[2]/div"));
 
 
-        if(!span.getText().equals("Date ('yyyy-MM-dd')")){
+        if (!span.getText().equals("Date ('yyyy-MM-dd')")) {
             Assert.fail("Check introduced date format fail");
         }
         try {
@@ -615,7 +615,7 @@ public class Computer {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        for (int i=0;i<30;i++){
+        for (int i = 0; i < 30; i++) {
             introducedBox.sendKeys(Keys.BACK_SPACE);
         }
         try {
@@ -632,7 +632,9 @@ public class Computer {
 
 
         WebElement discontinuedBox = driver.findElement(By.id("discontinued"));
-        discontinuedBox.sendKeys("2020-05-20");
+        discontinuedBox.sendKeys("202");
+
+
         try {
             TimeUnit.SECONDS.sleep(2);
         } catch (InterruptedException e) {
@@ -641,8 +643,31 @@ public class Computer {
         submit = driver.findElementByXPath("//input[@value='Create this computer']");
         submit.click();
 
+        span = driver.findElement(By.xpath("//section[@id='main']/form/fieldset/div[2]/div"));
 
+
+        if (!span.getText().equals("Date ('yyyy-MM-dd')")) {
+            Assert.fail("Check introduced date format fail");
+        }
+
+        for (int i = 0; i < 30; i++) {
+            discontinuedBox.sendKeys(Keys.BACK_SPACE);
+        }
+
+        discontinuedBox.sendKeys("2020-03-15");
+
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        submit.click();
         Assert.assertTrue(true);
+    }
+
+    /**/
+    @Test
+    public void check404() {
 
     }
 
