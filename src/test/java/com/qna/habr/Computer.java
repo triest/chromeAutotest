@@ -48,7 +48,6 @@ public class Computer {
         //check placeholder
         String s = driver.findElement(By.xpath("//input[@placeholder='Filter by computer name...']")).getAttribute("placeholder");
         if (s.equals("Filter by computer name...")) {
-            System.out.println("plaseholder found");
         } else {
             System.out.println("plaseholder not found");
             Assert.fail("placeholder not found");
@@ -235,24 +234,18 @@ public class Computer {
         searchBox = driver.findElement(By.id("name"));
 
         String new_name = searchBox.getAttribute("value");
-        System.out.println("new_name");
-        System.out.println(new_name);
 
-        if (new_name.equals(name)) {
-            System.out.println("true");
-        } else {
+
+        if (!new_name.equals(name)) {
             Assert.fail("name not found");
         }
 
         searchBox = driver.findElement(By.id("introduced"));
 
         new_name = searchBox.getAttribute("value");
-        System.out.println("introduced");
-        System.out.println(new_name);
 
-        if (new_name.equals("2020-05-15")) {
-            System.out.println("true");
-        } else {
+
+        if (!new_name.equals("2020-05-15")) {
             Assert.fail("introduced ");
         }
 
@@ -260,15 +253,12 @@ public class Computer {
         searchBox = driver.findElement(By.id("discontinued"));
 
         new_name = searchBox.getAttribute("value");
-        System.out.println("introduced");
-        System.out.println(new_name);
 
-        if (new_name.equals("2020-05-15")) {
-            System.out.println("true");
-        } else {
+
+        if (!new_name.equals("2020-05-15")) {
             Assert.fail("discontinued");
         }
-
+        driver.quit();
     }
 
 
@@ -343,24 +333,17 @@ public class Computer {
         searchBox = driver.findElement(By.id("name"));
 
         String new_name = searchBox.getAttribute("value");
-        System.out.println("new_name");
-        System.out.println(new_name);
 
-        if (new_name.equals(name)) {
-            System.out.println("true");
-        } else {
+        if (!new_name.equals(name)) {
             Assert.fail("name not found");
         }
 
         searchBox = driver.findElement(By.id("introduced"));
 
         new_name = searchBox.getAttribute("value");
-        System.out.println("introduced");
-        System.out.println(new_name);
 
-        if (new_name.equals("2020-05-15")) {
-            System.out.println("true");
-        } else {
+
+        if (!new_name.equals("2020-05-15")) {
             Assert.fail("introduced ");
         }
 
@@ -368,14 +351,12 @@ public class Computer {
         searchBox = driver.findElement(By.id("discontinued"));
 
         new_name = searchBox.getAttribute("value");
-        System.out.println("introduced");
-        System.out.println(new_name);
 
-        if (new_name.equals("2020-05-15")) {
-            System.out.println("true");
-        } else {
+
+        if (!new_name.equals("2020-05-15")) {
             Assert.fail("discontinued");
         }
+        driver.quit();
         return name;
     }
 
@@ -431,13 +412,7 @@ public class Computer {
         searchBox.sendKeys(Keys.BACK_SPACE);
         searchBox.sendKeys(name);
 
-        //add introduced
-        searchBox = driver.findElement(By.id("introduced"));
-        //  searchBox.sendKeys("2020-05-20");
 
-        //add name
-        searchBox = driver.findElement(By.id("discontinued"));
-//        searchBox.sendKeys("2020-05-20");
 
         searchBox = driver.findElement(By.id("company"));
         searchBox.click();
@@ -455,7 +430,7 @@ public class Computer {
         WebElement submit = driver.findElementByCssSelector(".primary");
         submit.click();
 
-
+        driver.quit();
         if (checkPC(name)) {
             Assert.assertTrue(true);
         } else {
@@ -497,7 +472,7 @@ public class Computer {
         WebElement submit = driver.findElementByCssSelector(".danger");
         submit.click();
 
-
+        driver.quit();
         if (checkPC(name) == false) {
             Assert.assertTrue(true);
         } else {
@@ -526,10 +501,11 @@ public class Computer {
         try {
             link = driver.findElementByXPath("//a[contains(text(),'" + name + "')]");
         } catch (org.openqa.selenium.NoSuchElementException e)  {
-            System.out.println("NoSuchElementException!!");
+            driver.quit();
             return false;
         }
         if (link == null) {
+            driver.quit();
             return false;
         }
 
@@ -545,25 +521,20 @@ public class Computer {
         searchBox = driver.findElement(By.id("name"));
 
         String new_name = searchBox.getAttribute("value");
-        System.out.println("new_name");
-        System.out.println(new_name);
-        System.out.println("name");
-        System.out.println(name);
+
         if (new_name.equals(name)) {
 
         } else {
+            driver.quit();
             return false;
         }
 
         searchBox = driver.findElement(By.id("introduced"));
 
         new_name = searchBox.getAttribute("value");
-        System.out.println("introduced");
-        System.out.println(new_name);
 
-        if (new_name.equals("2020-05-15")) {
-            System.out.println("true");
-        } else {
+        if (!new_name.equals("2020-05-15")) {
+            driver.quit();
             return false;
         }
 
@@ -571,9 +542,8 @@ public class Computer {
         searchBox = driver.findElement(By.id("discontinued"));
 
         new_name = searchBox.getAttribute("value");
-        System.out.println("introduced");
-        System.out.println(new_name);
 
+        driver.quit();
         if (new_name.equals("2020-05-15")) {
 
         } else {
@@ -615,6 +585,7 @@ public class Computer {
 
 
         if (!span.getText().equals("Date ('yyyy-MM-dd')")) {
+            driver.quit();
             Assert.fail("Check introduced date format fail");
         }
         try {
@@ -708,8 +679,9 @@ public class Computer {
         submit = driver.findElementByCssSelector(".primary");
         submit.click();
 
-
+        driver.quit();
         Assert.assertTrue(true);
+
     }
 
     /**/
@@ -744,7 +716,7 @@ public class Computer {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(status);
+
         if(status==404){
             Assert.assertTrue(true);
         }else {
