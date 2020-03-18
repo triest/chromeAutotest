@@ -640,28 +640,97 @@ public class Computer {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        submit = driver.findElementByXPath("//input[@value='Create this computer']");
+        submit = driver.findElementByCssSelector(".primary");
         submit.click();
 
         span = driver.findElement(By.xpath("//section[@id='main']/form/fieldset/div[2]/div"));
 
 
         if (!span.getText().equals("Date ('yyyy-MM-dd')")) {
-            Assert.fail("Check introduced date format fail");
+            Assert.fail("Check discoumter date format fail");
         }
+        discontinuedBox = driver.findElement(By.id("discontinued"));
+        discontinuedBox.click();
 
-        for (int i = 0; i < 30; i++) {
+        for (int i=0;i<10;i++){
             discontinuedBox.sendKeys(Keys.BACK_SPACE);
         }
-
-        discontinuedBox.sendKeys("2020-03-15");
 
         try {
             TimeUnit.SECONDS.sleep(2);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        discontinuedBox.sendKeys("20-02-2020");
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        submit = driver.findElementByCssSelector(".primary");
         submit.click();
+
+        span = driver.findElement(By.xpath("//section[@id='main']/form/fieldset/div[2]/div"));
+
+        if (!span.getText().equals("Date ('yyyy-MM-dd')")) {
+            Assert.fail("Check discoumter date format fail");
+        }
+
+
+        discontinuedBox = driver.findElement(By.id("discontinued"));
+        discontinuedBox.click();
+        for (int i=0;i<10;i++){
+            discontinuedBox.sendKeys(Keys.BACK_SPACE);
+        }
+
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        discontinuedBox.sendKeys("2020-02-02");
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        submit = driver.findElementByCssSelector(".primary");
+        submit.click();
+
+        /*
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        discontinuedBox.click();
+
+        for (int i = 0; i < 30; i++) {
+            discontinuedBox.sendKeys(Keys.BACK_SPACE);
+        }
+
+        /*
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        discontinuedBox.sendKeys("2020-03-15");
+*/
+/*
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        submit.click();
+        */
         Assert.assertTrue(true);
     }
 

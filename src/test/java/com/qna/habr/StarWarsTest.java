@@ -173,8 +173,6 @@ public class StarWarsTest {
 
     public String FindHeroUrl() throws InterruptedException, ProtocolException {
 
-        //  String query = "access_token=" + URLEncoder.encode(AUTH_TOKEN, CHARSET);
-
         Boolean findPadmé = false;
 
         String Address = "https://swapi.co/api/people/";
