@@ -9,7 +9,6 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -19,13 +18,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import javax.net.ssl.HttpsURLConnection;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -162,6 +156,366 @@ public class Computer {
         }
 
         return sb.toString();
+    }
+
+    @Test
+    public void addPC(){
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe");
+        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver_win32\\chromedriver.exe");
+        ChromeDriver driver = new ChromeDriver(chromeOptions);
+        driver.manage().window().setSize(new Dimension(1080, 960));
+        driver.get("http://computer-database.gatling.io/computers");
+        try {
+            Thread.sleep(1000);  // Let the user actually see something!
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        WebElement addButton = driver.findElement(By.id("add"));
+       addButton.click();
+        String name=getAlphaNumericString(10);
+       //add name
+        WebElement searchBox = driver.findElement(By.id("name"));
+        searchBox.sendKeys(name);
+
+        //add introduced
+         searchBox = driver.findElement(By.id("introduced"));
+        searchBox.sendKeys("2020-05-15");
+
+        //add name
+        searchBox = driver.findElement(By.id("discontinued"));
+        searchBox.sendKeys("2020-05-15");
+
+        searchBox = driver.findElement(By.id("company"));
+        searchBox.click();
+        searchBox.sendKeys(Keys.DOWN);
+        searchBox.sendKeys(Keys.DOWN);
+        searchBox.sendKeys(Keys.DOWN);
+        searchBox.sendKeys(Keys.ENTER);
+
+        try {
+            Thread.sleep(10000);  // Let the user actually see something!
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+     WebElement  submit = driver.findElementByCssSelector(".primary");
+        submit.click();
+
+
+
+        //now Search element
+         searchBox = driver.findElement(By.id("searchbox"));
+        searchBox.sendKeys(name);
+
+        WebElement SubmitButton = driver.findElement(By.id("searchsubmit"));
+        SubmitButton.click();
+
+        /*Check computer on page*/
+        WebElement link = driver.findElementByXPath("//a[contains(text(),'" + name + "')]");
+
+        if (link == null) {
+            Assert.fail("tags not found");
+        }
+
+        //open naw bar
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        link.click();
+
+        /*Check data*/
+        searchBox = driver.findElement(By.id("name"));
+
+        String new_name=searchBox.getAttribute("value");
+        System.out.println("new_name");
+        System.out.println(new_name);
+
+        if(new_name.equals(name)){
+            System.out.println("true");
+        }else {
+            Assert.fail("name not found");
+        }
+
+        searchBox = driver.findElement(By.id("introduced"));
+
+        new_name=searchBox.getAttribute("value");
+        System.out.println("introduced");
+        System.out.println(new_name);
+
+        if(new_name.equals("2020-05-15")){
+            System.out.println("true");
+        }else {
+            Assert.fail("introduced ");
+        }
+
+
+        searchBox = driver.findElement(By.id("discontinued"));
+
+        new_name=searchBox.getAttribute("value");
+        System.out.println("introduced");
+        System.out.println(new_name);
+
+        if(new_name.equals("2020-05-15")){
+            System.out.println("true");
+        }else {
+            Assert.fail("discontinued");
+        }
+
+    }
+
+
+    public String addPCFunction(){
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe");
+        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver_win32\\chromedriver.exe");
+        ChromeDriver driver = new ChromeDriver(chromeOptions);
+        driver.manage().window().setSize(new Dimension(1080, 960));
+        driver.get("http://computer-database.gatling.io/computers");
+        try {
+            Thread.sleep(1000);  // Let the user actually see something!
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        WebElement addButton = driver.findElement(By.id("add"));
+        addButton.click();
+        String name=getAlphaNumericString(10);
+        //add name
+        WebElement searchBox = driver.findElement(By.id("name"));
+        searchBox.sendKeys(name);
+
+        //add introduced
+        searchBox = driver.findElement(By.id("introduced"));
+        searchBox.sendKeys("2020-05-15");
+
+        //add name
+        searchBox = driver.findElement(By.id("discontinued"));
+        searchBox.sendKeys("2020-05-15");
+
+        searchBox = driver.findElement(By.id("company"));
+        searchBox.click();
+        searchBox.sendKeys(Keys.DOWN);
+        searchBox.sendKeys(Keys.DOWN);
+        searchBox.sendKeys(Keys.DOWN);
+        searchBox.sendKeys(Keys.ENTER);
+
+        try {
+            Thread.sleep(10000);  // Let the user actually see something!
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        WebElement  submit = driver.findElementByCssSelector(".primary");
+        submit.click();
+
+
+
+        //now Search element
+        searchBox = driver.findElement(By.id("searchbox"));
+        searchBox.sendKeys(name);
+
+        WebElement SubmitButton = driver.findElement(By.id("searchsubmit"));
+        SubmitButton.click();
+
+        /*Check computer on page*/
+        WebElement link = driver.findElementByXPath("//a[contains(text(),'" + name + "')]");
+
+        if (link == null) {
+            Assert.fail("tags not found");
+        }
+
+        //open naw bar
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        link.click();
+
+        /*Check data*/
+        searchBox = driver.findElement(By.id("name"));
+
+        String new_name=searchBox.getAttribute("value");
+        System.out.println("new_name");
+        System.out.println(new_name);
+
+        if(new_name.equals(name)){
+            System.out.println("true");
+        }else {
+            Assert.fail("name not found");
+        }
+
+        searchBox = driver.findElement(By.id("introduced"));
+
+        new_name=searchBox.getAttribute("value");
+        System.out.println("introduced");
+        System.out.println(new_name);
+
+        if(new_name.equals("2020-05-15")){
+            System.out.println("true");
+        }else {
+            Assert.fail("introduced ");
+        }
+
+
+        searchBox = driver.findElement(By.id("discontinued"));
+
+        new_name=searchBox.getAttribute("value");
+        System.out.println("introduced");
+        System.out.println(new_name);
+
+        if(new_name.equals("2020-05-15")){
+            System.out.println("true");
+        }else {
+            Assert.fail("discontinued");
+        }
+        return name;
+    }
+
+    @Test
+    public void editPC(){
+
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe");
+        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver_win32\\chromedriver.exe");
+        ChromeDriver driver = new ChromeDriver(chromeOptions);
+        driver.manage().window().setSize(new Dimension(1080, 960));
+        driver.get("http://computer-database.gatling.io/computers");
+
+          //String name=addPCFunction();
+        String     name="1sa4FfYyQu";
+        WebElement    searchBox = driver.findElement(By.id("searchbox"));
+        searchBox.sendKeys(name);
+
+        WebElement SubmitButton = driver.findElement(By.id("searchsubmit"));
+        SubmitButton.click();
+
+        /*Check computer on page*/
+        WebElement link = driver.findElementByXPath("//a[contains(text(),'" + name + "')]");
+
+        if (link == null) {
+            Assert.fail("tags not found");
+        }
+
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        link.click();
+
+
+//        WebElement addButton = driver.findElement(By.id("add"));
+ //       addButton.click();
+         name=getAlphaNumericString(10);
+        //add name
+         searchBox = driver.findElement(By.id("name"));
+        searchBox.sendKeys(name);
+
+        //add introduced
+        searchBox = driver.findElement(By.id("introduced"));
+      //  searchBox.sendKeys("2020-05-20");
+
+        //add name
+        searchBox = driver.findElement(By.id("discontinued"));
+//        searchBox.sendKeys("2020-05-20");
+
+        searchBox = driver.findElement(By.id("company"));
+        searchBox.click();
+        searchBox.sendKeys(Keys.DOWN);
+        searchBox.sendKeys(Keys.DOWN);
+        searchBox.sendKeys(Keys.DOWN);
+        searchBox.sendKeys(Keys.ENTER);
+
+        try {
+            Thread.sleep(10000);  // Let the user actually see something!
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("edit key");
+        WebElement  submit = driver.findElementByCssSelector(".primary");
+        submit.click();
+
+
+        if(checkPC(name)){
+            Assert.assertTrue(true);
+        }else {
+            Assert.fail("discontinued");
+        }
+
+    }
+
+    public boolean checkPC(String name){
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe");
+        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver_win32\\chromedriver.exe");
+        ChromeDriver driver = new ChromeDriver(chromeOptions);
+        driver.manage().window().setSize(new Dimension(1080, 960));
+        driver.get("http://computer-database.gatling.io/computers");
+
+     WebElement   searchBox = driver.findElement(By.id("searchbox"));
+        searchBox.sendKeys(name);
+
+        WebElement SubmitButton = driver.findElement(By.id("searchsubmit"));
+        SubmitButton.click();
+
+        /*Check computer on page*/
+        WebElement link = driver.findElementByXPath("//a[contains(text(),'" + name + "')]");
+
+        if (link == null) {
+            Assert.fail("tags not found");
+        }
+
+        //open naw bar
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        link.click();
+
+        /*Check data*/
+        searchBox = driver.findElement(By.id("name"));
+
+        String new_name=searchBox.getAttribute("value");
+        System.out.println("new_name");
+        System.out.println(new_name);
+
+        if(new_name.equals(name)){
+            System.out.println("true");
+        }else {
+            Assert.fail("name not found");
+        }
+
+        searchBox = driver.findElement(By.id("introduced"));
+
+        new_name=searchBox.getAttribute("value");
+        System.out.println("introduced");
+        System.out.println(new_name);
+
+        if(new_name.equals("2020-05-15")){
+            System.out.println("true");
+        }else {
+            return  false;
+        }
+
+
+        searchBox = driver.findElement(By.id("discontinued"));
+
+        new_name=searchBox.getAttribute("value");
+        System.out.println("introduced");
+        System.out.println(new_name);
+
+        if(new_name.equals("2020-05-15")){
+
+        }else {
+           return  false;
+        }
+        return  true;
     }
 
 }
