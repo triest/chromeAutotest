@@ -24,18 +24,20 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
-import java.security.Key;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class Computer {
+public class ComputerTest  {
+
+    String ChromePatch="C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe";
+    String ChromeDriver="E:\\chromedriver_win32\\chromedriver.exe";
 
     @Test
     public void CheckPlaceholderl() throws InterruptedException {
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe");
-        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver_win32\\chromedriver.exe");
+        chromeOptions.setBinary(ChromePatch);
+        System.setProperty("webdriver.chrome.driver", ChromeDriver);
         ChromeDriver driver = new ChromeDriver(chromeOptions);
         driver.manage().window().setSize(new Dimension(1080, 960));
         driver.get("http://computer-database.gatling.io/computers");
@@ -58,7 +60,7 @@ public class Computer {
         String Name = getAlphaNumericString(10);
         System.out.println("PC name " + Name);
         try {
-            CreatePCByRequwest(Name);
+            CreatePCByRequest(Name);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -66,13 +68,14 @@ public class Computer {
         /*
          * now try found PC
          * */
+        driver.quit();
     }
 
 
     public void SearchName(String name) {
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe");
-        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver_win32\\chromedriver.exe");
+        chromeOptions.setBinary(ChromePatch);
+        System.setProperty("webdriver.chrome.driver",ChromeDriver);
         ChromeDriver driver = new ChromeDriver(chromeOptions);
         driver.manage().window().setSize(new Dimension(1080, 960));
         driver.get("http://computer-database.gatling.io/computers");
@@ -112,7 +115,7 @@ public class Computer {
     }
 
 
-    public void CreatePCByRequwest(String string) throws IOException {
+    public void CreatePCByRequest(String string) throws IOException {
         String url = "http://computer-database.gatling.io/computers";
 
         HttpPost post = new HttpPost(url);
@@ -165,8 +168,8 @@ public class Computer {
     @Test
     public void addPC() {
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe");
-        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver_win32\\chromedriver.exe");
+        chromeOptions.setBinary(ChromePatch);
+        System.setProperty("webdriver.chrome.driver",ChromeDriver);
         ChromeDriver driver = new ChromeDriver(chromeOptions);
         driver.manage().window().setSize(new Dimension(1080, 960));
         driver.get("http://computer-database.gatling.io/computers");
@@ -264,8 +267,8 @@ public class Computer {
 
     public String addPCFunction() {
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe");
-        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver_win32\\chromedriver.exe");
+        chromeOptions.setBinary(ChromePatch);
+        System.setProperty("webdriver.chrome.driver",ChromeDriver);
         ChromeDriver driver = new ChromeDriver(chromeOptions);
         driver.manage().window().setSize(new Dimension(1080, 960));
         driver.get("http://computer-database.gatling.io/computers");
@@ -364,8 +367,8 @@ public class Computer {
     public void editPC() {
 
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe");
-        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver_win32\\chromedriver.exe");
+        chromeOptions.setBinary(ChromePatch);
+        System.setProperty("webdriver.chrome.driver",ChromeDriver);
         ChromeDriver driver = new ChromeDriver(chromeOptions);
         driver.manage().window().setSize(new Dimension(1080, 960));
         driver.get("http://computer-database.gatling.io/computers");
@@ -442,8 +445,8 @@ public class Computer {
     @Test
     public void testDelete() {
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe");
-        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver_win32\\chromedriver.exe");
+        chromeOptions.setBinary(ChromePatch);
+        System.setProperty("webdriver.chrome.driver",ChromeDriver);
         ChromeDriver driver = new ChromeDriver(chromeOptions);
         driver.manage().window().setSize(new Dimension(1080, 960));
         driver.get("http://computer-database.gatling.io/computers");
@@ -483,8 +486,8 @@ public class Computer {
 
     public boolean checkPC(String name) {
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe");
-        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver_win32\\chromedriver.exe");
+        chromeOptions.setBinary(ChromePatch);
+        System.setProperty("webdriver.chrome.driver",ChromeDriver);
         ChromeDriver driver = new ChromeDriver(chromeOptions);
         driver.manage().window().setSize(new Dimension(1080, 960));
         driver.get("http://computer-database.gatling.io/computers");
@@ -556,8 +559,8 @@ public class Computer {
     @Test
     public void TestFormValidate() {
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe");
-        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver_win32\\chromedriver.exe");
+        chromeOptions.setBinary(ChromePatch);
+        System.setProperty("webdriver.chrome.driver",ChromeDriver);
         ChromeDriver driver = new ChromeDriver(chromeOptions);
         driver.manage().window().setSize(new Dimension(1080, 960));
         driver.get("http://computer-database.gatling.io/computers");
@@ -729,8 +732,8 @@ public class Computer {
     @Test
     public void TestBackButton(){
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe");
-        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver_win32\\chromedriver.exe");
+        chromeOptions.setBinary(ChromePatch);
+        System.setProperty("webdriver.chrome.driver",ChromeDriver);
         ChromeDriver driver = new ChromeDriver(chromeOptions);
         driver.manage().window().setSize(new Dimension(1080, 960));
         driver.get("http://computer-database.gatling.io/computers");

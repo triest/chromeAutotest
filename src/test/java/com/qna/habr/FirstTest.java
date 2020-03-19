@@ -15,11 +15,15 @@ import java.util.concurrent.TimeUnit;
 
 public class FirstTest {
 
+    String ChromePatch="C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe";
+    String ChromeDriver="E:\\chromedriver_win32\\chromedriver.exe";
+
+
     @Test
     public void PleseholderTest() {
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe");
-        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver_win32\\chromedriver.exe");
+        chromeOptions.setBinary(ChromePatch);
+        System.setProperty("webdriver.chrome.driver", ChromeDriver);
         ChromeDriver driver = new ChromeDriver(chromeOptions);
         driver.manage().window().setSize(new Dimension(1080, 960));
         driver.get("https://qna.habr.com/");
@@ -43,8 +47,8 @@ public class FirstTest {
     @Test
     public void CheckSeleniumTeg() {
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe");
-        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver_win32\\chromedriver.exe");
+        chromeOptions.setBinary(ChromePatch);
+        System.setProperty("webdriver.chrome.driver", ChromeDriver);
         ChromeDriver driver = new ChromeDriver(chromeOptions);
         driver.manage().window().setSize(new Dimension(1080, 960));
         driver.get("https://qna.habr.com/");
@@ -85,8 +89,8 @@ public class FirstTest {
     @Test
     public void FirstTest() throws InterruptedException {
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe");
-        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver_win32\\chromedriver.exe");
+        chromeOptions.setBinary(ChromePatch);
+        System.setProperty("webdriver.chrome.driver", ChromeDriver);
         ChromeDriver driver = new ChromeDriver(chromeOptions);
         driver.manage().window().setSize(new Dimension(1080, 960));
         driver.get("https://qna.habr.com/");
@@ -154,6 +158,7 @@ public class FirstTest {
         if (share != null) {
             share.click();
         } else {
+            driver.quit();
             Assert.fail("Twittrer not found");
         }
         TimeUnit.SECONDS.sleep(2);
