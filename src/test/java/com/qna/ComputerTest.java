@@ -1,4 +1,4 @@
-package com.qna.habr;
+package com.qna;
 
 
 import org.apache.http.NameValuePair;

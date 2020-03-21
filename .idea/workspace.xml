@@ -2,23 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="944850fb-efd5-4a6b-bd78-51e766afa010" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ComputerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/StarWarsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/qna/FirstTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/qna/habr/Computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/qna/habr/ComputerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/qna/habr/FirstTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/qna/habr/FirstTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/qna/habr/FirstTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/qna/habr/FirstTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/qna/habr/ComputerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/qna/ComputerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/qna/habr/FirstTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FirstTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/qna/habr/StarWarsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/qna/StarWarsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/qna/habr/FirstTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -34,12 +40,17 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="untitled3" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -49,77 +60,69 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.qna.habr" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Dropbox\Java\untitled3\src\main\java" />
+    </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="Object[] arrayReceipients = JSONArray.toArray (JSONArray.fromObject(sYourJsonString)); System.out.println (arrayReceipients [0]);" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.com.qna.habr in untitled3">
-    <configuration name="All in untitled3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="GlobalConstants" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GlobalConstants" />
       <module name="untitled3" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ComputerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="untitled3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FirstTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="untitled3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.qna.habr.*" />
+          <option name="PATTERN" value="com.qna.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.qna.habr" />
-      <option name="MAIN_CLASS_NAME" value="com.qna.habr.ComputerTest" />
+      <option name="PACKAGE_NAME" value="com.qna" />
+      <option name="MAIN_CLASS_NAME" value="com.qna.FirstTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ComputerTest.CheckPlaceholder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StarWarsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="untitled3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.qna.habr.*" />
+          <option name="PATTERN" value="com.qna.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.qna.habr" />
-      <option name="MAIN_CLASS_NAME" value="com.qna.habr.ComputerTest" />
-      <option name="METHOD_NAME" value="CheckPlaceholder" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="com.qna" />
+      <option name="MAIN_CLASS_NAME" value="com.qna.StarWarsTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ComputerTest.CheckPlaceholderl" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="com.qna in untitled3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="untitled3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.qna.habr.*" />
+          <option name="PATTERN" value="com.qna.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.qna.habr" />
-      <option name="MAIN_CLASS_NAME" value="com.qna.habr.ComputerTest" />
-      <option name="METHOD_NAME" value="CheckPlaceholderl" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="com.qna.habr in untitled3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="untitled3" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.qna.habr.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.qna.habr" />
+      <option name="PACKAGE_NAME" value="com.qna" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -127,11 +130,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.com.qna.habr in untitled3" />
-        <item itemvalue="JUnit.ComputerTest" />
-        <item itemvalue="JUnit.ComputerTest.CheckPlaceholderl" />
-        <item itemvalue="JUnit.ComputerTest.CheckPlaceholder" />
-        <item itemvalue="JUnit.All in untitled3" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.com.qna in untitled3" />
+        <item itemvalue="Application.GlobalConstants" />
+        <item itemvalue="JUnit.StarWarsTest" />
+        <item itemvalue="JUnit.FirstTest" />
       </list>
     </recent_temporary>
   </component>
@@ -157,7 +160,8 @@
       <workItem from="1584508489758" duration="19038000" />
       <workItem from="1584558226107" duration="1161000" />
       <workItem from="1584559863875" duration="7039000" />
-      <workItem from="1584593941617" duration="4414000" />
+      <workItem from="1584593941617" duration="4714000" />
+      <workItem from="1584792620047" duration="8635000" />
     </task>
     <task id="LOCAL-00001" summary="Select posts">
       <created>1584282872907</created>
@@ -313,7 +317,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584566636370</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Adding instructions to README.md and rename Computer class">
+      <created>1584599248082</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1584599248082</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,17 +352,18 @@
     <MESSAGE value="Add checl back button" />
     <MESSAGE value="Add try-catch to find element after delete" />
     <MESSAGE value="Add exit from driver" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add exit from driver" />
+    <MESSAGE value="Adding instructions to README.md and rename Computer class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding instructions to README.md and rename Computer class" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Project_Structure" timestamp="1584269552815">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1584269552815" />
-    <state x="52" y="1" width="1819" height="1022" key="CommitChangelistDialog2" timestamp="1584566635268">
+    <state x="52" y="1" width="1819" height="1022" key="CommitChangelistDialog2" timestamp="1584599246404">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="52" y="1" width="1819" height="1022" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1584566635268" />
+    <state x="52" y="1" width="1819" height="1022" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1584599246404" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1584395024749">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -360,22 +372,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1584389189670" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1584598796431">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1584804877202">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584598796431" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1584598796431">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584804877202" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1584804877201">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584598796431" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1584598796431">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584804877201" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1584804877201">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584598796431" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1584598796431">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584804877201" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1584804877201">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584598796431" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584804877201" />
     <state width="1877" height="363" key="GridCell.Tab.1.bottom" timestamp="1584474056286">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -404,10 +416,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1584269503310" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1584566638098">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1584599250540">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1584566638098" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1584599250540" />
+    <state x="776" y="297" key="chooseDestDirectoryDialog" timestamp="1584797806651">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="776" y="297" key="chooseDestDirectoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584797806651" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1584301205794">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -1,4 +1,4 @@
-package com.qna.habr;
+package com.qna;
 
 
 import org.json.JSONArray;
@@ -9,10 +9,12 @@ import org.junit.Test;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.*;
-import java.util.*;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.util.ArrayList;
 
-import static org.apache.commons.lang3.ArrayUtils.add;
 import static org.junit.Assert.assertTrue;
 
 public class StarWarsTest {
