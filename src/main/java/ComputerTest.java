@@ -485,8 +485,6 @@ public class ComputerTest {
 
         String name = addPCFunction();
         try {
-
-
             WebElement searchBox = driver.findElement(By.id("searchbox"));
             searchBox.sendKeys(name);
 

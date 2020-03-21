@@ -17,7 +17,7 @@ public class FirstTest {
     String ChromeDriver = "E:\\chromedriver_win32\\chromedriver.exe";
 
 
-    public String PleseholderTest() {
+    public String PlaceholderTest() {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setBinary(ChromePatch);
         System.setProperty("webdriver.chrome.driver", ChromeDriver);
@@ -29,10 +29,6 @@ public class FirstTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-        /*
-         * check plaseholder
-         * */
 
         String s;
         try {
@@ -144,7 +140,7 @@ public class FirstTest {
         TimeUnit.SECONDS.sleep(2);
         WebElement nawBar;
         try {
-             nawBar = driver.findElementByClassName("btn_navbar_toggle");
+             nawBar = driver.findElementByClassName("btn_nawbar_toggle");
         }catch (Exception e){
             return "nawbar not found";
         }
@@ -182,14 +178,14 @@ public class FirstTest {
                 share.click();
             } else {
                 driver.quit();
-                Assert.fail("Twittrer not found");
-                return "Twittrer not found";
+                Assert.fail("Twitter not found");
+                return "Twitter not found";
             }
         }catch (Exception e){
-            return "Twittrer not found";
+            return "Twitter not found";
         }
         TimeUnit.SECONDS.sleep(2);
-        // check Tritter Page on new window
+        // check Twitter Page on new window
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
         String new_url = driver.getCurrentUrl().toString();

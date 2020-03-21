@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="944850fb-efd5-4a6b-bd78-51e766afa010" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/untitled3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/untitled3_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ComputerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ComputerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/FirstTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FirstTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GlobalConstants.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/qna/ComputerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/qna/ComputerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/qna/FirstTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/qna/FirstTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +67,7 @@
       <command value="Object[] arrayReceipients = JSONArray.toArray (JSONArray.fromObject(sYourJsonString)); System.out.println (arrayReceipients [0]);" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.com.qna in untitled3">
     <configuration name="GlobalConstants" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GlobalConstants" />
       <module name="untitled3" />
@@ -130,8 +128,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.com.qna in untitled3" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.GlobalConstants" />
         <item itemvalue="JUnit.StarWarsTest" />
         <item itemvalue="JUnit.FirstTest" />
@@ -161,7 +159,7 @@
       <workItem from="1584558226107" duration="1161000" />
       <workItem from="1584559863875" duration="7039000" />
       <workItem from="1584593941617" duration="4714000" />
-      <workItem from="1584792620047" duration="18064000" />
+      <workItem from="1584792620047" duration="19624000" />
     </task>
     <task id="LOCAL-00001" summary="Select posts">
       <created>1584282872907</created>
@@ -331,7 +329,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584806729087</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Add try-catch to find elements;">
+      <created>1584819076158</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1584819076158</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,7 +366,8 @@
     <MESSAGE value="Add exit from driver" />
     <MESSAGE value="Adding instructions to README.md and rename Computer class" />
     <MESSAGE value="Add Calss for test." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Calss for test." />
+    <MESSAGE value="Add try-catch to find elements;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add try-catch to find elements;" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Console" timestamp="1584818902019">
@@ -376,10 +382,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="689" y="303" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584813492015" />
-    <state x="52" y="1" width="1819" height="1022" key="CommitChangelistDialog2" timestamp="1584806727546">
+    <state x="52" y="1" width="1819" height="1022" key="CommitChangelistDialog2" timestamp="1584819074611">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="52" y="1" width="1819" height="1022" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1584806727546" />
+    <state x="52" y="1" width="1819" height="1022" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1584819074611" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1584395024749">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -388,22 +394,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1584389189670" />
-    <state width="1877" height="253" key="GridCell.Tab.0.bottom" timestamp="1584818979460">
+    <state width="1877" height="253" key="GridCell.Tab.0.bottom" timestamp="1584820626083">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="253" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584818979460" />
-    <state width="1877" height="253" key="GridCell.Tab.0.center" timestamp="1584818979460">
+    <state width="1877" height="253" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584820626083" />
+    <state width="1877" height="253" key="GridCell.Tab.0.center" timestamp="1584820626083">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="253" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584818979460" />
-    <state width="1877" height="253" key="GridCell.Tab.0.left" timestamp="1584818979460">
+    <state width="1877" height="253" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584820626083" />
+    <state width="1877" height="253" key="GridCell.Tab.0.left" timestamp="1584820626083">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="253" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584818979460" />
-    <state width="1877" height="253" key="GridCell.Tab.0.right" timestamp="1584818979460">
+    <state width="1877" height="253" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584820626083" />
+    <state width="1877" height="253" key="GridCell.Tab.0.right" timestamp="1584820626083">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="253" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584818979460" />
+    <state width="1877" height="253" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584820626083" />
     <state width="1877" height="363" key="GridCell.Tab.1.bottom" timestamp="1584474056286">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -432,10 +438,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1584813509353" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1584806732580">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1584819082000">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1584806732580" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1584819082000" />
     <state x="776" y="297" key="chooseDestDirectoryDialog" timestamp="1584797806651">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -456,9 +462,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584551956411" />
-    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup" timestamp="1584547673726">
+    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup" timestamp="1584820033573">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584547673726" />
+    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584820033573" />
   </component>
 </project>

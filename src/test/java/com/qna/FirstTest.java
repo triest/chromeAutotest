@@ -33,14 +33,18 @@ public class FirstTest {
             e.printStackTrace();
         }
 
-        /*
-         * check plaseholder
-         * */
-        String s = driver.findElement(By.xpath("//input[@placeholder='Найти вопрос, ответ, тег или пользователя']")).getAttribute("placeholder");
+        String s=null;
+        try {
+            s = driver.findElement(By.xpath("//input[@placeholder='Найти вопрос, ответ, тег или пользователя']")).getAttribute("placeholder");
+        } catch (Exception e) {
+           Assert.assertTrue(false);
+        }
         driver.quit();
         if (s.equals("Найти вопрос, ответ, тег или пользователя")) {
+            Assert.assertTrue(false);
         } else {
             Assert.fail("placeholder not found");
+            Assert.assertTrue(false);
         }
     }
 

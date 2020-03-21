@@ -6,10 +6,10 @@ public class Main {
         String rez="";
 
         FirstTest firstTest = new FirstTest();
-        System.out.println(firstTest.PleseholderTest());
+        System.out.println(firstTest.PlaceholderTest());
 
 
-         rez = firstTest.PleseholderTest();
+         rez = firstTest.PlaceholderTest();
         if (!rez.equals("")) {
             System.out.println("PlaceholderTest: " + rez);
         } else {
