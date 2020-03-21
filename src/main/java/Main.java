@@ -3,9 +3,13 @@ import java.net.ProtocolException;
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
+        String rez="";
+
         FirstTest firstTest = new FirstTest();
         System.out.println(firstTest.PleseholderTest());
-        String rez = firstTest.PleseholderTest();
+
+
+         rez = firstTest.PleseholderTest();
         if (!rez.equals("")) {
             System.out.println("PlaceholderTest: " + rez);
         } else {
@@ -27,20 +31,6 @@ public class Main {
 
 
         ComputerTest computerTest = new ComputerTest();
-        rez = computerTest.CheckPlaceholderl();
-        if (!rez.equals("")) {
-            System.out.println("CheckPlaceholderl: " + rez);
-        } else {
-            System.out.println("CheckPlaceholderl: pass");
-        }
-
-        rez = computerTest.CheckPlaceholderl();
-        if (!rez.equals("")) {
-            System.out.println("CheckPlaceholderl: " + rez);
-        } else {
-            System.out.println("CheckPlaceholderl: pass");
-        }
-
         rez = computerTest.CheckPlaceholderl();
         if (!rez.equals("")) {
             System.out.println("CheckPlaceholderl: " + rez);

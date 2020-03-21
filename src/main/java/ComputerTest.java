@@ -174,52 +174,60 @@ public class ComputerTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-        WebElement addButton = driver.findElement(By.id("add"));
-        addButton.click();
-        String name = getAlphaNumericString(10);
-        //add name
-        WebElement searchBox = driver.findElement(By.id("name"));
-        searchBox.sendKeys(name);
-
-        //add introduced
-        searchBox = driver.findElement(By.id("introduced"));
-        searchBox.sendKeys("2020-05-15");
-
-        //add name
-        searchBox = driver.findElement(By.id("discontinued"));
-        searchBox.sendKeys("2020-05-15");
-
-        searchBox = driver.findElement(By.id("company"));
-        searchBox.click();
-        searchBox.sendKeys(Keys.DOWN);
-        searchBox.sendKeys(Keys.DOWN);
-        searchBox.sendKeys(Keys.DOWN);
-        searchBox.sendKeys(Keys.ENTER);
-
+        WebElement searchBox = null;
+        String name = "";
         try {
-            Thread.sleep(10000);  // Let the user actually see something!
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            WebElement addButton = driver.findElement(By.id("add"));
+            addButton.click();
+            name = getAlphaNumericString(10);
+            //add name
+            searchBox = driver.findElement(By.id("name"));
+            searchBox.sendKeys(name);
+
+            //add introduced
+            searchBox = driver.findElement(By.id("introduced"));
+            searchBox.sendKeys("2020-05-15");
+
+            //add name
+            searchBox = driver.findElement(By.id("discontinued"));
+            searchBox.sendKeys("2020-05-15");
+
+            searchBox = driver.findElement(By.id("company"));
+            searchBox.click();
+            searchBox.sendKeys(Keys.DOWN);
+            searchBox.sendKeys(Keys.DOWN);
+            searchBox.sendKeys(Keys.DOWN);
+            searchBox.sendKeys(Keys.ENTER);
+
+            try {
+                Thread.sleep(10000);  // Let the user actually see something!
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            WebElement submit = driver.findElementByCssSelector(".primary");
+            submit.click();
+
+
+            //now Search element
+            searchBox = driver.findElement(By.id("searchbox"));
+            searchBox.sendKeys(name);
+
+            WebElement SubmitButton = driver.findElement(By.id("searchsubmit"));
+            SubmitButton.click();
+        } catch (Exception e) {
+            return "add PC FAIL";
         }
 
-        WebElement submit = driver.findElementByCssSelector(".primary");
-        submit.click();
-
-
-        //now Search element
-        searchBox = driver.findElement(By.id("searchbox"));
-        searchBox.sendKeys(name);
-
-        WebElement SubmitButton = driver.findElement(By.id("searchsubmit"));
-        SubmitButton.click();
 
         /*Check computer on page*/
-        WebElement link = driver.findElementByXPath("//a[contains(text(),'" + name + "')]");
-
-        if (link == null) {
+        WebElement link;
+        try {
+            link = driver.findElementByXPath("//a[contains(text(),'" + name + "')]");
+        } catch (Exception e) {
             return "tags not found";
         }
+
 
         //open naw bar
         try {
@@ -239,24 +247,27 @@ public class ComputerTest {
             return "name not found";
         }
 
-        searchBox = driver.findElement(By.id("introduced"));
-
-        new_name = searchBox.getAttribute("value");
-
-
-        if (!new_name.equals("2020-05-15")) {
+        try {
+            searchBox = driver.findElement(By.id("introduced"));
+            new_name = searchBox.getAttribute("value");
+            if (!new_name.equals("2020-05-15")) {
+                return "introduced ";
+            }
+        } catch (Exception e) {
             return "introduced ";
         }
 
+        try {
+            searchBox = driver.findElement(By.id("discontinued"));
 
-        searchBox = driver.findElement(By.id("discontinued"));
-
-        new_name = searchBox.getAttribute("value");
-
-
-        if (!new_name.equals("2020-05-15")) {
+            new_name = searchBox.getAttribute("value");
+            if (!new_name.equals("2020-05-15")) {
+                return "discontinued";
+            }
+        } catch (Exception e) {
             return "discontinued";
         }
+
         driver.quit();
         return "";
     }
@@ -274,28 +285,34 @@ public class ComputerTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-        WebElement addButton = driver.findElement(By.id("add"));
-        addButton.click();
         String name = getAlphaNumericString(10);
-        //add name
-        WebElement searchBox = driver.findElement(By.id("name"));
-        searchBox.sendKeys(name);
+        WebElement searchBox;
+        try {
+            WebElement addButton = driver.findElement(By.id("add"));
+            addButton.click();
 
-        //add introduced
-        searchBox = driver.findElement(By.id("introduced"));
-        searchBox.sendKeys("2020-05-15");
+            //add name
+            searchBox = driver.findElement(By.id("name"));
+            searchBox.sendKeys(name);
 
-        //add name
-        searchBox = driver.findElement(By.id("discontinued"));
-        searchBox.sendKeys("2020-05-15");
+            //add introduced
+            searchBox = driver.findElement(By.id("introduced"));
+            searchBox.sendKeys("2020-05-15");
 
-        searchBox = driver.findElement(By.id("company"));
-        searchBox.click();
-        searchBox.sendKeys(Keys.DOWN);
-        searchBox.sendKeys(Keys.DOWN);
-        searchBox.sendKeys(Keys.DOWN);
-        searchBox.sendKeys(Keys.ENTER);
+            //add name
+            searchBox = driver.findElement(By.id("discontinued"));
+            searchBox.sendKeys("2020-05-15");
+
+            searchBox = driver.findElement(By.id("company"));
+            searchBox.click();
+            searchBox.sendKeys(Keys.DOWN);
+            searchBox.sendKeys(Keys.DOWN);
+            searchBox.sendKeys(Keys.DOWN);
+            searchBox.sendKeys(Keys.ENTER);
+        } catch (Exception e) {
+            return "edit not passed";
+        }
+
 
         try {
             Thread.sleep(10000);  // Let the user actually see something!
@@ -305,17 +322,21 @@ public class ComputerTest {
 
         WebElement submit = driver.findElementByCssSelector(".primary");
         submit.click();
-
+        WebElement link = null;
 
         //now Search element
-        searchBox = driver.findElement(By.id("searchbox"));
-        searchBox.sendKeys(name);
+        try {
+            searchBox = driver.findElement(By.id("searchbox"));
+            searchBox.sendKeys(name);
 
-        WebElement SubmitButton = driver.findElement(By.id("searchsubmit"));
-        SubmitButton.click();
+            WebElement SubmitButton = driver.findElement(By.id("searchsubmit"));
+            SubmitButton.click();
 
-        /*Check computer on page*/
-        WebElement link = driver.findElementByXPath("//a[contains(text(),'" + name + "')]");
+            /*Check computer on page*/
+            link = driver.findElementByXPath("//a[contains(text(),'" + name + "')]");
+        } catch (Exception e) {
+            return "link not found";
+        }
 
         if (link == null) {
             return "tags not found";
@@ -337,21 +358,26 @@ public class ComputerTest {
         if (!new_name.equals(name)) {
             return "name not found";
         }
+        try {
+            searchBox = driver.findElement(By.id("introduced"));
 
-        searchBox = driver.findElement(By.id("introduced"));
-
-        new_name = searchBox.getAttribute("value");
+            new_name = searchBox.getAttribute("value");
+        } catch (Exception e) {
+            return "introduced ";
+        }
 
 
         if (!new_name.equals("2020-05-15")) {
             return "introduced ";
         }
 
+        try {
+            searchBox = driver.findElement(By.id("discontinued"));
 
-        searchBox = driver.findElement(By.id("discontinued"));
-
-        new_name = searchBox.getAttribute("value");
-
+            new_name = searchBox.getAttribute("value");
+        } catch (Exception e) {
+            return "discontinued";
+        }
 
         if (!new_name.equals("2020-05-15")) {
             Assert.fail("discontinued");
@@ -371,19 +397,24 @@ public class ComputerTest {
         driver.get("http://computer-database.gatling.io/computers");
 
         String name = addPCFunction();
+        WebElement searchBox = null;
+        WebElement link = null;
+        try {
+            searchBox = driver.findElement(By.id("searchbox"));
+            searchBox.sendKeys(name);
 
-        WebElement searchBox = driver.findElement(By.id("searchbox"));
-        searchBox.sendKeys(name);
+            WebElement SubmitButton = driver.findElement(By.id("searchsubmit"));
+            SubmitButton.click();
 
-        WebElement SubmitButton = driver.findElement(By.id("searchsubmit"));
-        SubmitButton.click();
-
-        /*Check computer on page*/
-        WebElement link = driver.findElementByXPath("//a[contains(text(),'" + name + "')]");
-
-        if (link == null) {
-            return "tags not found";
+            /*Check computer on page*/
+            link = driver.findElementByXPath("//a[contains(text(),'" + name + "')]");
+            if (link == null) {
+                return "link not found";
+            }
+        } catch (Exception e) {
+            return "link not found";
         }
+
 
         try {
             TimeUnit.SECONDS.sleep(2);
@@ -425,8 +456,14 @@ public class ComputerTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        WebElement submit = driver.findElementByCssSelector(".primary");
-        submit.click();
+        try {
+
+
+            WebElement submit = driver.findElementByCssSelector(".primary");
+            submit.click();
+        } catch (Exception e) {
+            return "discontinued";
+        }
 
         driver.quit();
         if (checkPC(name)) {
@@ -447,30 +484,33 @@ public class ComputerTest {
         driver.get("http://computer-database.gatling.io/computers");
 
         String name = addPCFunction();
-
-
-        WebElement searchBox = driver.findElement(By.id("searchbox"));
-        searchBox.sendKeys(name);
-
-        WebElement SubmitButton = driver.findElement(By.id("searchsubmit"));
-        SubmitButton.click();
-
-        /*Check computer on page*/
-        WebElement link = driver.findElementByXPath("//a[contains(text(),'" + name + "')]");
-
-
-        //open naw bar
         try {
-            TimeUnit.SECONDS.sleep(2);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+
+
+            WebElement searchBox = driver.findElement(By.id("searchbox"));
+            searchBox.sendKeys(name);
+
+            WebElement SubmitButton = driver.findElement(By.id("searchsubmit"));
+            SubmitButton.click();
+
+            /*Check computer on page*/
+            WebElement link = driver.findElementByXPath("//a[contains(text(),'" + name + "')]");
+            //open naw bar
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            link.click();
+            WebElement submit = driver.findElementByCssSelector(".danger");
+            submit.click();
+
+            driver.quit();
+        } catch (Exception e) {
+            return "link not found";
         }
-        link.click();
 
-        WebElement submit = driver.findElementByCssSelector(".danger");
-        submit.click();
 
-        driver.quit();
         if (checkPC(name) == false) {
             return "";
         } else {
@@ -560,9 +600,14 @@ public class ComputerTest {
         driver.get("http://computer-database.gatling.io/computers");
         WebElement addButton = driver.findElement(By.id("add"));
         addButton.click();
+        WebElement submit = null;
+        try {
+            submit = driver.findElementByCssSelector(".primary");
+            submit.click();
 
-        WebElement submit = driver.findElementByCssSelector(".primary");
-        submit.click();
+        } catch (Exception e) {
+            return "submit button not found";
+        }
 
         WebElement span = driver.findElement(By.cssSelector(".error .help-inline"));
         System.out.println(span.getText());
@@ -577,7 +622,7 @@ public class ComputerTest {
         WebElement introducedBox = driver.findElement(By.id("introduced"));
         introducedBox.sendKeys(name);
 
-        //xpath=//section[@id='main']/form/fieldset/div[2]/div
+
         span = driver.findElement(By.xpath("//section[@id='main']/form/fieldset/div[2]/div"));
 
 
@@ -604,10 +649,13 @@ public class ComputerTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-
-        WebElement discontinuedBox = driver.findElement(By.id("discontinued"));
-        discontinuedBox.sendKeys("202");
+        WebElement discontinuedBox = null;
+        try {
+            discontinuedBox = driver.findElement(By.id("discontinued"));
+            discontinuedBox.sendKeys("202");
+        } catch (Exception e) {
+            return "discontinued not fiund";
+        }
 
 
         try {
@@ -617,20 +665,27 @@ public class ComputerTest {
         }
         submit = driver.findElementByCssSelector(".primary");
         submit.click();
+        try {
 
-        span = driver.findElement(By.xpath("//section[@id='main']/form/fieldset/div[2]/div"));
 
+            span = driver.findElement(By.xpath("//section[@id='main']/form/fieldset/div[2]/div"));
+        } catch (Exception e) {
+            return "Check discounted date format fail";
+        }
 
         if (!span.getText().equals("Date ('yyyy-MM-dd')")) {
-            return "Check discoumter date format fail";
+            return "Check discounted date format fail";
         }
-        discontinuedBox = driver.findElement(By.id("discontinued"));
-        discontinuedBox.click();
+        try {
+            discontinuedBox = driver.findElement(By.id("discontinued"));
+            discontinuedBox.click();
 
-        for (int i = 0; i < 10; i++) {
-            discontinuedBox.sendKeys(Keys.BACK_SPACE);
+            for (int i = 0; i < 10; i++) {
+                discontinuedBox.sendKeys(Keys.BACK_SPACE);
+            }
+        } catch (Exception e) {
+            return "discontinued not fund";
         }
-
         try {
             TimeUnit.SECONDS.sleep(2);
         } catch (InterruptedException e) {
@@ -643,22 +698,34 @@ public class ComputerTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        try {
+            submit = driver.findElementByCssSelector(".primary");
+        } catch (Exception e) {
+            return "Exception not found";
+        }
 
-        submit = driver.findElementByCssSelector(".primary");
         submit.click();
+        try {
 
-        span = driver.findElement(By.xpath("//section[@id='main']/form/fieldset/div[2]/div"));
+        } catch (Exception e) {
+            span = driver.findElement(By.xpath("//section[@id='main']/form/fieldset/div[2]/div"));
 
-        if (!span.getText().equals("Date ('yyyy-MM-dd')")) {
+            if (!span.getText().equals("Date ('yyyy-MM-dd')")) {
+                return "Check discoumter date format fail";
+            }
+
+        }
+
+        try {
+            discontinuedBox = driver.findElement(By.id("discontinued"));
+            discontinuedBox.click();
+            for (int i = 0; i < 10; i++) {
+                discontinuedBox.sendKeys(Keys.BACK_SPACE);
+            }
+        } catch (Exception e) {
             return "Check discoumter date format fail";
         }
 
-
-        discontinuedBox = driver.findElement(By.id("discontinued"));
-        discontinuedBox.click();
-        for (int i = 0; i < 10; i++) {
-            discontinuedBox.sendKeys(Keys.BACK_SPACE);
-        }
 
         try {
             TimeUnit.SECONDS.sleep(2);
@@ -728,21 +795,36 @@ public class ComputerTest {
         ChromeDriver driver = new ChromeDriver(chromeOptions);
         driver.manage().window().setSize(new Dimension(1080, 960));
         driver.get("http://computer-database.gatling.io/computers");
-        WebElement Buttom = driver.findElement(By.xpath("//a[contains(text(),'Next →')]"));
-        Buttom.click();
+        WebElement Button = null;
+        try {
+            Button = driver.findElement(By.xpath("//a[contains(text(),'Next →')]"));
+            Button.click();
+        } catch (Exception e) {
+            return "next button not found";
+        }
 
+        try {
+            List<WebElement> link = driver.findElements(By.xpath("//a[contains(@href, '/computers/')]"));
+            link.get(10).click();
+            ////a[contains(text(),'Cancel')]
+            Button = driver.findElementByXPath("//a[contains(text(),'Cancel')]");
+            Button.click();
+            String new_url = driver.getCurrentUrl().toString();
+        } catch (Exception e) {
+            return "links to computers not found";
+        }
         List<WebElement> link = driver.findElements(By.xpath("//a[contains(@href, '/computers/')]"));
         link.get(10).click();
         ////a[contains(text(),'Cancel')]
-        Buttom = driver.findElementByXPath("//a[contains(text(),'Cancel')]");
-        Buttom.click();
+        Button = driver.findElementByXPath("//a[contains(text(),'Cancel')]");
+        Button.click();
 
         String new_url = driver.getCurrentUrl().toString();
         driver.close();
         if (new_url.equals("http://computer-database.gatling.io/computers")) {
-           return "";
+            return "";
         } else {
-          return "test Back Button Fail";
+            return "test Back Button Fail";
         }
 
 

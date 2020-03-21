@@ -33,7 +33,13 @@ public class FirstTest {
         /*
          * check plaseholder
          * */
-        String s = driver.findElement(By.xpath("//input[@placeholder='Найти вопрос, ответ, тег или пользователя']")).getAttribute("placeholder");
+
+        String s;
+        try {
+            s = driver.findElement(By.xpath("//input[@placeholder='Найти вопрос, ответ, тег или пользователя']")).getAttribute("placeholder");
+        } catch (Exception e) {
+            return "placeholder not found";
+        }
         driver.quit();
         if (s.equals("Найти вопрос, ответ, тег или пользователя")) {
             return "";
@@ -71,12 +77,16 @@ public class FirstTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        WebElement tagsList = null;
         posts.get(2).click();
+        try {
+            tagsList = driver.findElementByXPath("//a[contains(text(),'Selenium')]");
+        } catch (Exception e) {
+            return "tags not found";
+        }
 
-        WebElement tagsList = driver.findElementByXPath("//a[contains(text(),'Selenium')]");
         driver.quit();
         if (tagsList == null) {
-            Assert.fail("tags not found");
             return "tags not found";
         } else {
             return "";
@@ -101,7 +111,13 @@ public class FirstTest {
         /*
          * check plaseholder
          * */
-        String s = driver.findElement(By.xpath("//input[@placeholder='Найти вопрос, ответ, тег или пользователя']")).getAttribute("placeholder");
+        String s = "";
+        try {
+            s = driver.findElement(By.xpath("//input[@placeholder='Найти вопрос, ответ, тег или пользователя']")).getAttribute("placeholder");
+
+        } catch (Exception e) {
+            return "placeholder not found";
+        }
         if (s.equals("Найти вопрос, ответ, тег или пользователя")) {
         } else {
             return "placeholder not found";
@@ -113,25 +129,26 @@ public class FirstTest {
         searchBox.sendKeys(Keys.UP);
         searchBox.sendKeys(Keys.UP);
         searchBox.sendKeys(Keys.ENTER);
-
-        //олучаем едеьенты
-        List<WebElement> posts = driver.findElementsByClassName("content-list__item");
-        TimeUnit.SECONDS.sleep(2);
-        posts.get(2).click();
-
-        WebElement tagsList = driver.findElementByXPath("//a[contains(text(),'Selenium')]");
-
-        if (tagsList == null) {
-            driver.quit();
-            //Assert.fail("tags not found");
+        WebElement tagsList = null;
+        try {
+            List<WebElement> posts = driver.findElementsByClassName("content-list__item");
+            TimeUnit.SECONDS.sleep(2);
+            posts.get(2).click();
+            tagsList = driver.findElementByXPath("//a[contains(text(),'Selenium')]");
+        } catch (Exception e) {
             return "tags not found";
         }
 
 
         //open naw bar
         TimeUnit.SECONDS.sleep(2);
+        WebElement nawBar;
+        try {
+             nawBar = driver.findElementByClassName("btn_navbar_toggle");
+        }catch (Exception e){
+            return "nawbar not found";
+        }
 
-        WebElement nawBar = driver.findElementByClassName("btn_navbar_toggle");
         if (nawBar == null) {
             driver.quit();
             return "nawbar not found";
@@ -143,22 +160,32 @@ public class FirstTest {
         }
         TimeUnit.SECONDS.sleep(2);
         driver.executeScript("window.scrollTo(0, document.body.scrollHeight*0.37);");
-
-        WebElement share = driver.findElementByCssSelector(".dropdown:nth-child(4) > .btn");
-        if (share != null) {
-            share.click();
-        } else {
-            driver.quit();
+        WebElement share=null;
+        try {
+            share = driver.findElementByCssSelector(".dropdown:nth-child(4) > .btn");
+            if (share != null) {
+                share.click();
+            } else {
+                driver.quit();
+                return "share not found";
+            }
+        }catch (Exception e){
             return "share not found";
         }
-        TimeUnit.SECONDS.sleep(2);
 
-        share = driver.findElementByCssSelector(".dropdown_active .link_tw");
-        if (share != null) {
-            share.click();
-        } else {
-            driver.quit();
-            Assert.fail("Twittrer not found");
+        TimeUnit.SECONDS.sleep(2);
+        try {
+
+
+            share = driver.findElementByCssSelector(".dropdown_active .link_tw");
+            if (share != null) {
+                share.click();
+            } else {
+                driver.quit();
+                Assert.fail("Twittrer not found");
+                return "Twittrer not found";
+            }
+        }catch (Exception e){
             return "Twittrer not found";
         }
         TimeUnit.SECONDS.sleep(2);
