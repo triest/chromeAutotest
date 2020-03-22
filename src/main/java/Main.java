@@ -1,15 +1,45 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.ProtocolException;
+import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws InterruptedException {
-        String rez="";
+    private static String ChromePatch = "C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe";
+    //  private static String ChromePatch = "";
+    private static String ChromeDriver = "E:\\chromedriver_win32\\chromedriver.exe";
+    //private static String ChromeDriver = "";
 
-        FirstTest firstTest = new FirstTest();
+
+    public Main() {
+        /*
+        try {
+            System.out.println("const");
+            File myObj = new File("filename.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                System.out.println(data);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+
+        }*/
+
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+
+        //  readSettings();
+        String rez = "";
+
+        FirstTest firstTest = new FirstTest(ChromePatch, ChromeDriver);
         System.out.println(firstTest.PlaceholderTest());
 
 
-         rez = firstTest.PlaceholderTest();
+        rez = firstTest.PlaceholderTest();
         if (!rez.equals("")) {
             System.out.println("PlaceholderTest: " + rez);
         } else {
@@ -30,12 +60,12 @@ public class Main {
         }
 
 
-        ComputerTest computerTest = new ComputerTest();
+        ComputerTest computerTest = new ComputerTest(ChromePatch, ChromeDriver);
         rez = computerTest.CheckPlaceholderl();
         if (!rez.equals("")) {
-            System.out.println("CheckPlaceholderl: " + rez);
+            System.out.println("CheckPlaceholder: " + rez);
         } else {
-            System.out.println("CheckPlaceholderl: pass");
+            System.out.println("CheckPlaceholder: pass");
         }
 
 
@@ -97,10 +127,10 @@ public class Main {
             System.out.println("TestBackButton: pass");
         }
 
-        rez="";
+        rez = "";
         StarWarsTest starWarsTest = new StarWarsTest();
         try {
-            rez=starWarsTest.FirstTest();
+            rez = starWarsTest.FirstTest();
         } catch (ProtocolException e) {
             e.printStackTrace();
         }
@@ -111,5 +141,30 @@ public class Main {
             System.out.println("StarWarsTest: pass");
         }
 
+    }
+
+    public static void readSettings() {
+        try {
+            System.out.println("const");
+            File myObj = new File("E:\\filename.txt");
+            Scanner myReader = new Scanner(myObj);
+            int count = 0;
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                System.out.println("data" + data);
+                count++;
+                if (count == 0) {
+                    ChromePatch = data;
+                } else if (count == 1) {
+                    ChromeDriver = data;
+                }
+
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+
+        }
     }
 }

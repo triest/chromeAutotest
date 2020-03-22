@@ -20,7 +20,7 @@ public class FirstTest {
 
 
     @Test
-    public void PleseholderTest() {
+    public void PlaceholderTest() {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setBinary(ChromePatch);
         System.setProperty("webdriver.chrome.driver", ChromeDriver);
@@ -41,7 +41,7 @@ public class FirstTest {
         }
         driver.quit();
         if (s.equals("Найти вопрос, ответ, тег или пользователя")) {
-            Assert.assertTrue(false);
+            Assert.assertTrue(true);
         } else {
             Assert.fail("placeholder not found");
             Assert.assertTrue(false);
@@ -105,7 +105,7 @@ public class FirstTest {
         }
 
         /*
-         * check plaseholder
+         * check placeholder
          * */
         String s = driver.findElement(By.xpath("//input[@placeholder='Найти вопрос, ответ, тег или пользователя']")).getAttribute("placeholder");
         if (s.equals("Найти вопрос, ответ, тег или пользователя")) {
@@ -139,7 +139,7 @@ public class FirstTest {
         WebElement nawBar = driver.findElementByClassName("btn_navbar_toggle");
         if (nawBar == null) {
             driver.quit();
-            Assert.fail("nawbar not found");
+            Assert.fail("navbar not found");
             System.exit(1);
         } else {
             nawBar.click();
@@ -163,10 +163,10 @@ public class FirstTest {
             share.click();
         } else {
             driver.quit();
-            Assert.fail("Twittrer not found");
+            Assert.fail("Twitter not found");
         }
         TimeUnit.SECONDS.sleep(2);
-        // check Tritter Page on new window
+        // check Twitter Page on new window
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
         String new_url = driver.getCurrentUrl().toString();
@@ -174,8 +174,7 @@ public class FirstTest {
         if (new_url.contains("/twitter.com/intent/tweet?text=")) {
             Assert.assertTrue(true);
         } else {
-
-            Assert.fail("Twittrer page not open");
+            Assert.fail("Twitter page not open");
         }
     }
 

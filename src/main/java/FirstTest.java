@@ -16,6 +16,10 @@ public class FirstTest {
     String ChromePatch = "C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe";
     String ChromeDriver = "E:\\chromedriver_win32\\chromedriver.exe";
 
+    public FirstTest(String chromePatch, String chromeDriver) {
+        ChromePatch = chromePatch;
+        ChromeDriver = chromeDriver;
+    }
 
     public String PlaceholderTest() {
         ChromeOptions chromeOptions = new ChromeOptions();
@@ -140,8 +144,8 @@ public class FirstTest {
         TimeUnit.SECONDS.sleep(2);
         WebElement nawBar;
         try {
-             nawBar = driver.findElementByClassName("btn_nawbar_toggle");
-        }catch (Exception e){
+            nawBar = driver.findElementByClassName("btn_nawbar_toggle");
+        } catch (Exception e) {
             return "nawbar not found";
         }
 
@@ -156,7 +160,7 @@ public class FirstTest {
         }
         TimeUnit.SECONDS.sleep(2);
         driver.executeScript("window.scrollTo(0, document.body.scrollHeight*0.37);");
-        WebElement share=null;
+        WebElement share = null;
         try {
             share = driver.findElementByCssSelector(".dropdown:nth-child(4) > .btn");
             if (share != null) {
@@ -165,7 +169,7 @@ public class FirstTest {
                 driver.quit();
                 return "share not found";
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             return "share not found";
         }
 
@@ -181,7 +185,7 @@ public class FirstTest {
                 Assert.fail("Twitter not found");
                 return "Twitter not found";
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             return "Twitter not found";
         }
         TimeUnit.SECONDS.sleep(2);

@@ -30,6 +30,12 @@ public class ComputerTest {
     String ChromePatch = "C:\\Program Files (x86)\\Google\\Chrome Beta\\Application\\chrome.exe";
     String ChromeDriver = "E:\\chromedriver_win32\\chromedriver.exe";
 
+
+    public ComputerTest(String chromePatch, String chromeDriver) {
+        ChromePatch = chromePatch;
+        ChromeDriver = chromeDriver;
+    }
+
     @Test
     public String CheckPlaceholderl() throws InterruptedException {
         ChromeOptions chromeOptions = new ChromeOptions();
