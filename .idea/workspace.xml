@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="untitled3:jar2" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="944850fb-efd5-4a6b-bd78-51e766afa010" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/triest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/untitled3_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/untitled3_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/untitled3_jar2/untitled3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ComputerTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/FirstTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/StarWarsTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/qna/ComputerTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/qna/FirstTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/qna/StarWarsTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/untitled3.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/untitled3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/untitled3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/untitled3_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/untitled3_jar2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ComputerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ComputerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FirstTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FirstTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/qna/FirstTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/qna/FirstTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +41,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
     <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1ZA3cUHvtwXAThicBpHcKZagyq8" />
@@ -41,6 +55,7 @@
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.generateSingleFile" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="untitled3" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -48,7 +63,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/java" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -68,7 +83,7 @@
       <command value="Object[] arrayReceipients = JSONArray.toArray (JSONArray.fromObject(sYourJsonString)); System.out.println (arrayReceipients [0]);" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.com.qna in untitled3">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="untitled3" />
@@ -139,8 +154,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.com.qna in untitled3" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.com.qna in untitled3" />
         <item itemvalue="JUnit.FirstTest.PlaceholderTest" />
         <item itemvalue="JUnit.StarWarsTest.FirstTest" />
         <item itemvalue="JUnit.StarWarsTest" />
@@ -172,7 +187,7 @@
       <workItem from="1584593941617" duration="4714000" />
       <workItem from="1584792620047" duration="20956000" />
       <workItem from="1584859049642" duration="4576000" />
-      <workItem from="1584889621175" duration="1280000" />
+      <workItem from="1584889621175" duration="6157000" />
     </task>
     <task id="LOCAL-00001" summary="Select posts">
       <created>1584282872907</created>
@@ -356,7 +371,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584820653069</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Add reade setting from file and fix errors.">
+      <created>1584891400981</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1584891400981</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -400,7 +422,8 @@
     <MESSAGE value="Adding instructions to README.md and rename Computer class" />
     <MESSAGE value="Add Calss for test." />
     <MESSAGE value="Add try-catch to find elements;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add try-catch to find elements;" />
+    <MESSAGE value="Add reade setting from file and fix errors." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add reade setting from file and fix errors." />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Console" timestamp="1584818902019">
@@ -419,14 +442,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1584889208429" />
-    <state x="689" y="303" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1584891161634">
+    <state x="689" y="303" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1584893959767">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="689" y="303" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584891161634" />
-    <state x="52" y="1" width="1819" height="1022" key="CommitChangelistDialog2" timestamp="1584820651947">
+    <state x="689" y="303" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584893959767" />
+    <state x="52" y="1" width="1819" height="1022" key="CommitChangelistDialog2" timestamp="1584894845979">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="52" y="1" width="1819" height="1022" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1584820651947" />
+    <state x="52" y="1" width="1819" height="1022" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1584894845979" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1584823590992">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -435,22 +458,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1584389189670" />
-    <state width="1921" height="983" key="GridCell.Tab.0.bottom" timestamp="1584891090464">
+    <state width="1921" height="983" key="GridCell.Tab.0.bottom" timestamp="1584893506945">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="983" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584891090464" />
-    <state width="1921" height="983" key="GridCell.Tab.0.center" timestamp="1584891090463">
+    <state width="1921" height="983" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584893506945" />
+    <state width="1921" height="983" key="GridCell.Tab.0.center" timestamp="1584893506945">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="983" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584891090463" />
-    <state width="1921" height="983" key="GridCell.Tab.0.left" timestamp="1584891090463">
+    <state width="1921" height="983" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584893506945" />
+    <state width="1921" height="983" key="GridCell.Tab.0.left" timestamp="1584893506945">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="983" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584891090463" />
-    <state width="1921" height="983" key="GridCell.Tab.0.right" timestamp="1584891090463">
+    <state width="1921" height="983" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584893506945" />
+    <state width="1921" height="983" key="GridCell.Tab.0.right" timestamp="1584893506945">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="983" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584891090463" />
+    <state width="1921" height="983" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584893506945" />
     <state width="1877" height="363" key="GridCell.Tab.1.bottom" timestamp="1584474056286">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -475,18 +498,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="785" y="230" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584562936382" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1584891216503">
+    <state x="440" y="94" key="SettingsEditor" timestamp="1584893979793">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1584891216503" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1584820654415">
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1584893979793" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1584891447517">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1584820654415" />
-    <state x="776" y="297" key="chooseDestDirectoryDialog" timestamp="1584797806651">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1584891447517" />
+    <state x="776" y="297" key="chooseDestDirectoryDialog" timestamp="1584893753269">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="776" y="297" key="chooseDestDirectoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584797806651" />
+    <state x="776" y="297" key="chooseDestDirectoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584893753269" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1584894933041">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584894933041" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1584301205794">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -499,10 +526,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="680" y="311" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584277519222" />
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1584551956411">
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1584895848869">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584551956411" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584895848869" />
     <state x="616" y="173" width="672" height="676" key="search.everywhere.popup" timestamp="1584820033573">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
